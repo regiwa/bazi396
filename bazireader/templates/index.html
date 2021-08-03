@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Home {% endblock  %}
+
+{% block content %}
+<section class="page-section" id="contact">
+   <div class="container">
+      <!-- Contact section heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-@"> Bazi Reader</h2>
+      <!-- Icon divider -->
+      <div class="divider-custom">
+         <div class="divider-custom-line"></div>
+         <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+         <div class="divider-custom-line"></div>
+      </div>
+
+      <div class="text-center text-secondary mb-@">
+         <p>
+            Please input your name, date of birth (including hour), 8 bazi characters, and the first 2 luck periods!
+         </p>
+         <p>
+            You can also send us email at <a href="mailto:bazireader16@gmail.com">bazireader16@gmail.com</a>
+         </p>
+      </div>
+
+   </div>
+</section>
+
+{% endblock  %}

@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Account Result - {{ name }}{% endblock  %}
+
+{% block content %}
+<div class="page-section" id="contact" xmlns="http://www.w3.org/1999/html">
+   <div class="container">
+      <!-- Contact section heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-@"> Bazi Reader</h2>
+      <!-- Icon divider -->
+      <div class="divider-custom">
+         <div class="divider-custom-line"></div>
+         <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+         <div class="divider-custom-line"></div>
+      </div>
+
+      <div class="text-center text-secondary mb-@">
+         <h4> Your bazi chart: </h4>
+      </div>
+
+      <!-- Result section form -->
+      <div class="row">
+         <div class="col-lg-8 mx-auto">
+             <p> Name: {{ name }}    </p>
+             <p> Gender:  {{ gender }}   </p>
+             <p> DOB: {{ day }} / {{ month }} / {{ year }}  </p>
+
+             {% if not notime %}
+                 <p> Time: {{ hour }} : {{ min }}   </p>
+             {% endif %}
+
+             <p> Starting Age: {{ zone }} &nbsp; Umur: {{ umur }}</p>
+             <br/>
+
+             <table class="col-12 ">
+                 <tr>
+                     <th class="col-2"> HH </th>
+                     <th class="col-2"> DD </th>
+                     <th class="col-2"> MM </th>
+                     <th class="col-2"> YY </th>
+                 </tr>
+                 <tr>
+                     <th class="col-2"><h5> {{ bz_kar.0 }} </h5>{{ bz_elm.0 }}</th>
+                     <th class="col-2"><h5> {{ bz_kar.1 }} </h5>{{ bz_elm.1 }}</th>
+                     <th class="col-2"><h5> {{ bz_kar.2 }} </h5>{{ bz_elm.2 }}</th>
+                     <th class="col-2"><h5> {{ bz_kar.3 }} </h5>{{ bz_elm.3 }}</th>
+                 </tr>
+                 <tr>
+                     <th class="col-2"><h5> {{ bz_kar.4 }} </h5>{{ bz_elm.4 }}</th>
+                     <th class="col-2"><h5> {{ bz_kar.5 }} </h5>{{ bz_elm.5 }}</th>
+                     <th class="col-2"><h5> {{ bz_kar.6 }} </h5>{{ bz_elm.6 }}</th>
+                     <th class="col-2"><h5> {{ bz_kar.7 }} </h5>{{ bz_elm.7 }}</th>
+                 </tr>
+
+             </table>
+             *) Elemen setelah perubahan akibat transformasi/kombinasi (jika ada)
+             <br/>
+             <br/>
+
+             <p> Day Master: {{ dm_elemen }} </p>
+             <!--
+             <p> Karakter: {{ bz_kar }} </p>
+             <p> Elemen: {{ bz_elm }} </p>
+             <p> Kayu: {{ kayu }} </p>
+             <p> Api: {{ api }} </p>
+             <p> Tanah: {{ tanah }} </p>
+             <p> Logam: {{ logam }} </p>
+             <p> Air: {{ air }} </p>
+             -->
+
+             <p> Tubuh: {{ tubuh }} </p>
+             <p> Type: {{ masfem }}</p>
+             <p> Pasangan: Elemen {{ pasangan }}</p>
+             <p> Tulang: {{ km }}</p>
+             <p> Useful element: {{ YS }}</p>
+             <p> {{ YSn }} </p>
+             <p> Lucky element: {{ XS }}</p>
+             <p> {{ XSn }} </p>
+             <br/>
+
+             <h5> {{ mystory }} </h5>
+             <br/>
+
+             <div class="text-center text-secondary mb-@">
+                <h5> Karir : {{ YS }}</h5>
+
+                <p> {{ karir }}  </p>
+                <p>(Sumber: https://ramalanfengshuiastrologimetafisika.wordpress.com/2014/03/04/115 )</p>
+                <br/>
+             </div>
+
+             <div class="text-center text-secondary mb-@">
+                <h5> Kesehatan: </h5>
+
+                <p> {{ health }}  </p>
+                <br/>
+             </div>
+
+             {% if meaning != "" %}
+             <div class="text-center text-secondary mb-@">
+                <h5> Attention: </h5>
+
+                <p> {{ meaning }}  </p>
+                <br/>
+             </div>
+             {% endif %}
+
+             <div class="text-center text-secondary mb-@">
+                <h5> Luck Period: </h5>
+
+             <table class="col-12 ">
+                 <tr>
+                     <th class="col-1"><h5> {{ lucka.8 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.7 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.6 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.5 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.4 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.3 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.2 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.1 }} </h5></th>
+                     <th class="col-1"><h5> {{ lucka.0 }} </h5></th>
+                 </tr>
+                 <tr>
+                     <th class="col-1"><h5> {{ luckb.8 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.7 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.6 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.5 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.4 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.3 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.2 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.1 }} </h5></th>
+                     <th class="col-1"><h5> {{ luckb.0 }} </h5></th>
+                 </tr>
+                 <tr>
+                     <th class="col-1"> {{ age.8 }} </th>
+                     <th class="col-1"> {{ age.7 }} </th>
+                     <th class="col-1"> {{ age.6 }} </th>
+                     <th class="col-1"> {{ age.5 }} </th>
+                     <th class="col-1"> {{ age.4 }} </th>
+                     <th class="col-1"> {{ age.3 }} </th>
+                     <th class="col-1"> {{ age.2 }} </th>
+                     <th class="col-1"> {{ age.1 }} </th>
+                     <th class="col-1"> {{ age.0 }} </th>
+                 </tr>
+                  <tr>
+                     <th class="col-1"> {{ pp.8 }} </th>
+                     <th class="col-1"> {{ pp.7 }} </th>
+                     <th class="col-1"> {{ pp.6 }} </th>
+                     <th class="col-1"> {{ pp.5 }} </th>
+                     <th class="col-1"> {{ pp.4 }} </th>
+                     <th class="col-1"> {{ pp.3 }} </th>
+                     <th class="col-1"> {{ pp.2 }} </th>
+                     <th class="col-1"> {{ pp.1 }} </th>
+                     <th class="col-1"> {{ pp.0 }} </th>
+                 </tr>
+             </table>
+             </div>
+             <br/>
+
+             <div class="text-center text-secondary mb-@">
+                 <h5> Annual Luck: </h5>
+                 <table class="col-12 ">
+                    <tr>
+                        <th class="col-2"> {{ tahuny.0 }} </th>
+                        <th class="col-1"> {{ tahuna.0 }} {{ tahunb.0 }} </th>
+                        <th class="col-8"> {{ tahunc.0 }}</th>
+                    </tr>
+                    <tr>
+                        <th class="col-2"> {{ tahuny.1 }} </th>
+                        <th class="col-1"> {{ tahuna.1 }} {{ tahunb.1 }} </th>
+                        <th class="col-8"> {{ tahunc.1 }}</th>
+                    </tr>
+                    <tr>
+                        <th class="col-2"> {{ tahuny.2 }} </th>
+                        <th class="col-1"> {{ tahuna.2 }} {{ tahunb.2 }} </th>
+                        <th class="col-8"> {{ tahunc.2 }}</th>
+                    </tr>
+                    <tr>
+                        <th class="col-2"> {{ tahuny.3 }} </th>
+                        <th class="col-1"> {{ tahuna.3 }} {{ tahunb.3 }} </th>
+                        <th class="col-8"> {{ tahunc.3 }}</th>
+                    </tr>
+                    <tr>
+                        <th class="col-2"> {{ tahuny.4 }} </th>
+                        <th class="col-1"> {{ tahuna.4 }} {{ tahunb.4 }} </th>
+                        <th class="col-8"> {{ tahunc.4 }}</th>
+                    </tr>
+                 </table>
+             </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="page-section" id="diagram">
+    <div class = "row">
+        <div class="col-sm-8">
+            <div class="container d-flex align-items-center flex-column">
+              <img class="masthead-avatar mb-5" src="{% static 'assets/img/Element.png'%}" alt="..." style="width:100%;" >
+              <!-- width of image relative to window -->
+              <!-- actual content (text) -->
+              <div class="bottom-left"><h1 class="masthead-heading text-uppercase mb-0"> {{ air }} </h1></div> <!-- Air -->
+              <div class="top-left"><h1 class="masthead-heading text-uppercase mb-0"> {{ kayu }} </h1></div> <!-- Kayu -->
+              <div class="top-right"><h1 class="masthead-heading text-uppercase mb-0"> {{ tanah}} </h1></div> <!-- Tanah -->
+              <div class="bottom-right"><h1 class="masthead-heading text-uppercase mb-0"> {{ logam }} </h1></div> <!-- Logam -->
+              <div class="top"><h1 class="masthead-heading text-uppercase mb-0"> {{ api }} </h1></div> <!-- Api -->
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="container d-flex align-items-center flex-column">
+                <table class="col-10 ">
+                    <tr><th><H6> DM: </H6></th> <th>{{ dm_elemen }}</th></tr>
+                    <tr><th><H6> O:  </H6></th> <th>{{ output }}   </th></tr>
+                    <tr><th><H6> W:  </H6></th> <th>{{ wealth }}   </th></tr>
+                    <tr><th><H6> Off:</H6></th> <th>{{ officer }}  </th></tr>
+                    <tr><th><H6> R:  </H6></th> <th>{{ Resc }}     </th></tr>
+                </table>
+
+                <img class="masthead-avatar mb-5" src="{% static 'assets/img/key.png'%}" alt="..." style="width:100%;"/>
+            </div>
+        </div>
+
+   </div>
+</div>
+
+
+{% endblock  %}

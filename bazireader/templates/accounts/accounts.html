@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block title %} Accounts {% endblock  %}
+
+{% block content %}
+<section class="page-section" id="contact">
+   <div class="container">
+      <!-- Contact section heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-@"> Bazi Reader</h2>
+      <!-- Icon divider -->
+      <div class="divider-custom">
+         <div class="divider-custom-line"></div>
+         <div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
+         <div class="divider-custom-line"></div>
+      </div>
+
+      <div class="text-center text-secondary mb-@">
+         <p>
+            Please input your name, date of birth (including hour), 8 bazi characters, and the first 2 luck periods!
+         </p>
+         <p>
+            You can also send us email at <a href="mailto:bazireader16@gmail.com">bazireader16@gmail.com</a>
+         </p>
+      </div>
+
+      <!-- Contact section form -->
+      <div class="row">
+         <div class="col-lg-8 mx-auto">
+
+            {% if success %}
+            <div class="alert alert-success" role="alert">
+               Please input your name.
+            </div>
+            {% endif %}
+
+            <!-- to configure contact form email goto mail/contact.php -->
+            <form id="bz_form" name="sentbazi" novalidate="novalidate" method="post">
+               {% csrf_token %}
+
+               {% if form.non_field_errors %}
+               <div class="alert alert-danger" role="alert">
+                  {{ form.non_field_errors }}
+               </div>
+               {% endif %}
+
+               <!--
+               {% for field in form %}
+                <div class="control-group">
+                  <div class="form-group floating-label-form-group controls mb-@ pb-2">
+                     {{ field.label_tag }} {{ field }}
+
+                     {% for error in field.errors %}
+                     <p class="help-block text-danger">{{ error }}</p>
+                     {% endfor %}
+                  </div>
+               </div>
+               {% endfor %}
+               -->
+               <div class="form-group row col-9 mx-auto plot">
+                   <label class="control-label col-3 my-auto"><strong>Name</strong>&nbsp;姓名 :</label>
+                   <div class="col-7">
+                       {{ form.name }}
+                   </div>
+               </div>
+
+               <div class="form-group row col-9 mx-auto plot">
+                   <label class="control-label col-3 my-auto"><strong>Gender</strong>&nbsp;性别 :</label>
+                   <div class="col-7">
+                       {{ form.gender }}
+                   </div>
+               </div>
+
+               <div class="form-group row col-9 mx-auto plot">
+                   <label class="control-label col-3 my-auto"><strong>Birth&nbsp;Date</strong>&nbsp;生日 :</label>
+                   <div class="col-7 row pr-0">
+                       <div class="col-3 pr-2">
+                           {{ form.day }}
+                           <small>Day</small>
+                       </div>
+
+                       <div class="col-5 px-1">
+                           {{ form.month }}
+                           <small>Month</small>
+                       </div>
+
+                       <div class="col-4 pr-0 pl-2">
+                           {{ form.year }}
+                           <small>Year</small>
+                       </div>
+
+                   </div>
+               </div>
+               <div class="form-group row col-9 mx-auto plot">
+                   <label class="control-label col-3 my-auto"><strong>Time</strong>&nbsp;时间 :</label>
+                   <div class="col-7 row pr-0">
+                       <div class="col-3 pr-2">
+                           {{ form.hour }}
+                           <small>Hour</small>
+                       </div>
+
+                       <div class="col-3 px-1">
+                           {{ form.min }}
+                           <small>Min</small>
+                       </div>
+
+                       <div class="col-4 px-1 my-auto">
+                           {{ form.notime }}
+                           <label class="control-label my-auto">&nbsp;Unknown&nbsp;无</label>
+                       </div>
+                   </div>
+               </div>
+               <div class="form-group row col-9 mx-auto plot">
+                   <label class="control-label col-3 my-auto"><strong>Starting Age</strong> :</label>
+                   <div class="col-7">
+                       {{ form.zone }}
+                   </div>
+               </div>
+
+                <div class="form-group row col-12 mx-auto plot">
+                    <label class="control-label col-3 my-auto"><strong>Bazi&nbsp;Chart</strong>&nbsp; :</label>
+
+                        <div class="col-2">
+                            {{ form.hha }}
+                            {{ form.hhb }}
+                           <small>HH</small>
+                        </div>
+                        <div class="col-2">
+                            {{ form.dda }}
+                            {{ form.ddb }}
+                           <small>DD</small>
+                        </div>
+                        <div class="col-2 ">
+                            {{ form.mma }}
+                            {{ form.mmb }}
+                           <small>MM</small>
+                        </div>
+                        <div class="col-2 ">
+                            {{ form.yya }}
+                            {{ form.yyb }}
+                           <small>YY</small>
+                       </div>
+                </div>
+
+                <div class="form-group row col-12 mx-auto plot">
+                    <label class="control-label col-3 my-auto"><strong>Luck Period</strong>&nbsp; :</label>
+
+                        <div class="col-2">
+                            {{ form.l2a }}
+                            {{ form.l2b }}
+                           <small>2</small>
+                        </div>
+                        <div class="col-2">
+                            {{ form.l1a }}
+                            {{ form.l1b }}
+                           <small>1</small>
+                        </div>
+                </div>
+               <br />
+               <div class="col-9 mx-auto py-3" style="text-align:center;">
+                  <button  id="sendBazi" type="submit">PLOT BAZI</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>
+
+{% endblock  %}
