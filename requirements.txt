@@ -1,2 +1,4 @@
 Django==3.2.5
 bleach==3.2.1
+gunicorn
+django-heroku
