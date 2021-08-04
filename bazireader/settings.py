@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-1i54@!6^=z6f@4aqc62i)#ooq6uml!)%vub(q5mbhjidm3=upc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bazi396.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -61,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'bazireader.urls'
