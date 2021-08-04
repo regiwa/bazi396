@@ -382,6 +382,7 @@ def accounts(request: HttpRequest) -> HttpResponse:
                 tom = "air"
                 tomc = air
 
+            tomu =""
             if DM == "kayu":
                 if tom == "api": tomu = "output"
                 if tom == "tanah": tomu = "wealth"
