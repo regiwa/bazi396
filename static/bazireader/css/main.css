@@ -1,0 +1,10 @@
+#main {
+  padding-top: calc(6rem + 74px);
+}
+
+@media (min-width: 992px) {
+  #main {
+    padding-top: calc(6rem + 104px);
+  }
+}
+
