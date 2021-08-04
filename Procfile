@@ -1,2 +1,3 @@
 release: python manage.py migrate
-web: python manage.py runserver
+web: gunicorn bazireader.wsgi
+#web: python manage.py runserver
